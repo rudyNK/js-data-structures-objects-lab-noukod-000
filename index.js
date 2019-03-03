@@ -1,42 +1,29 @@
 // Write your solution in this file!
-const drivers = ['Milo', 'Otis', 'Garfield'];
+const driver = {};
 
- function destructivelyAppendDriver(name){
-  drivers.push(name);
-  return drivers;
-};
+function updateDriverWithKeyAndValue(driver, key, value){
+    return Object.assign({},driver, {[key]:value});
 
- function destructivelyPrependDriver(name){
-  drivers.unshift(name);
-  return drivers;
+    
 }
 
- function destructivelyRemoveLastDriver(name){
-  drivers.pop(name);
-  return drivers;
+function destructivelyUpdateDriverWithKeyAndValue(driver, key, value){
+    driver[key]=value;
+    return driver;
 }
 
- function destructivelyRemoveFirstDriver(name){
-  drivers.shift(name);
-  return drivers;
+
+
+function deleteFromDriverByKey(driver, key){
+    const newDriver = Object.assign({},driver);
+    delete newDriver[key];
+    return newDriver;
 }
 
- function appendDriver(name){
-  const newDrivers = [...drivers, name];
-  return newDrivers;
-};
 
- function prependDriver(name){
-  const newDrivers = [name, ...drivers];
-  return newDrivers;
+
+function destructivelyDeleteFromDriverByKey(driver, key){
+    delete driver[key];
+    return driver;
 }
-
- function removeLastDriver(){
-  const newDrivers = drivers.slice(0, drivers.length-1)
-  return newDrivers;
-};
-
- function removeFirstDriver(){
-  const newDrivers = drivers.slice(1);
-  return newDrivers;
-}
+// Not sure about it.
