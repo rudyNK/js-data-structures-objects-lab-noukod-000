@@ -1,23 +1,42 @@
 // Write your solution in this file!
-var recipes = {};
+const drivers = ['Milo', 'Otis', 'Garfield'];
 
-function updateObjectWithKeyAndValue(object, key, value){
-return Object.assign({}, object, {[key]: value});
+ function destructivelyAppendDriver(name){
+  drivers.push(name);
+  return drivers;
+};
+
+ function destructivelyPrependDriver(name){
+  drivers.unshift(name);
+  return drivers;
 }
 
-function destructivelyUpdateObjectWithKeyAndValue(object, key, value){
-  var prop = key;
-  object[prop] = value;
-  return object;
+ function destructivelyRemoveLastDriver(name){
+  drivers.pop(name);
+  return drivers;
 }
 
-function deleteFromObjectByKey(object, key){
-  var newObj = Object.assign({}, object);
-  delete newObj[key];
-  return newObj;
+ function destructivelyRemoveFirstDriver(name){
+  drivers.shift(name);
+  return drivers;
 }
 
-function destructivelyDeleteFromObjectByKey(object, key){
-  delete object.key;
-  return object;
+ function appendDriver(name){
+  const newDrivers = [...drivers, name];
+  return newDrivers;
+};
+
+ function prependDriver(name){
+  const newDrivers = [name, ...drivers];
+  return newDrivers;
+}
+
+ function removeLastDriver(){
+  const newDrivers = drivers.slice(0, drivers.length-1)
+  return newDrivers;
+};
+
+ function removeFirstDriver(){
+  const newDrivers = drivers.slice(1);
+  return newDrivers;
 }
